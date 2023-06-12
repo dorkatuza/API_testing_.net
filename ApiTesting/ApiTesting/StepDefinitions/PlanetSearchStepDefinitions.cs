@@ -32,7 +32,7 @@ namespace ApiTesting.StepDefinitions
             Assert.Equal(responseStatus, PlanetResponse.StatusCode.ToString());
         }
 
-        [Then(@"the planet name is: '([^']*)'")]
+        [Then(@"the planet name is: ([^']*)")]
         public void ThenThePlanetNameIs(string planetName)
         {
             string ResponseContent = PlanetResponse.Content;
