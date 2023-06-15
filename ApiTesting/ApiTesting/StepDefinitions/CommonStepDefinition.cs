@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using ApiTesting.Support;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,8 @@ using System.Threading.Tasks;
 namespace ApiTesting.StepDefinitions
 {
     [Binding]
-    public class CommonStepDefinition
+    public class CommonStepDefinition: RequestHandler
     {
-        private static RestResponse response;
-
-        public static RestResponse Response { get => response; set => response = value; }
 
         [When(@"response status is: (.*)")]
         public void WhenResponseStatusIs(string responseStatus)
