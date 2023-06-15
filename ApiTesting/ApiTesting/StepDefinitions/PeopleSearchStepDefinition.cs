@@ -7,7 +7,7 @@ using RestSharp.Serializers.NewtonsoftJson;
 namespace ApiTesting.StepDefinitions
 {
     [Binding]
-    public class PeopleSearchStepDefinitions: RequestHandler
+    public class PeopleSearchStepDefinitions: ResponseHandler
     {
 
         [Given(@"the people ID is: (.*)")]

@@ -7,7 +7,7 @@ using RestSharp.Serializers.NewtonsoftJson;
 namespace ApiTesting.StepDefinitions
 {
     [Binding]
-    public class PlanetSearchStepDefinitions : RequestHandler
+    public class PlanetSearchStepDefinitions : ResponseHandler
     {
 
         [Given(@"the planet ID is: (.*)")]

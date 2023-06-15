@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ApiTesting.StepDefinitions
 {
     [Binding]
-    public class CommonStepDefinition: RequestHandler
+    public class CommonStepDefinition: ResponseHandler
     {
 
         [When(@"response status is: (.*)")]
