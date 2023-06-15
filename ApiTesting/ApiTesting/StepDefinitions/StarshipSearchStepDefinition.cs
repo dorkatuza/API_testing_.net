@@ -1,4 +1,5 @@
-﻿using ApiTesting.Support.JsonObjects;
+﻿using ApiTesting.Support;
+using ApiTesting.Support.JsonObjects;
 using Newtonsoft.Json;
 using RestSharp;
 using RestSharp.Serializers.NewtonsoftJson;
@@ -6,7 +7,7 @@ using RestSharp.Serializers.NewtonsoftJson;
 namespace ApiTesting.StepDefinitions
 {
     [Binding]
-    public class StarshipSearchStepDefinitions: CommonStepDefinition
+    public class StarshipSearchStepDefinitions: RequestHandler
     {
 
         [Given(@"the starship ID is: (.*)")]
