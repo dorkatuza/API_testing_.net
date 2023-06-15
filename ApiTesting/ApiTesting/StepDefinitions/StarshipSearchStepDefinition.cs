@@ -7,7 +7,7 @@ using RestSharp.Serializers.NewtonsoftJson;
 namespace ApiTesting.StepDefinitions
 {
     [Binding]
-    public class StarshipSearchStepDefinitions: RequestHandler
+    public class StarshipSearchStepDefinitions: ResponseHandler
     {
 
         [Given(@"the starship ID is: (.*)")]
