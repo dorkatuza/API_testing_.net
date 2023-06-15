@@ -1,4 +1,4 @@
-using ApiTesting.Support.JsonObjects;
+﻿using ApiTesting.Support.JsonObjects;
 using Newtonsoft.Json;
 using RestSharp;
 using RestSharp.Serializers.NewtonsoftJson;
@@ -6,14 +6,14 @@ using RestSharp.Serializers.NewtonsoftJson;
 namespace ApiTesting.StepDefinitions
 {
     [Binding]
-    public class PlanetSearchStepDefinitions : CommonStepDefinition
+    public class PeopleSearchStepDefinitions: CommonStepDefinition
     {
 
-        [Given(@"the planet ID is: (.*)")]
-        public async Task GivenThePlanetIDIsAsync(int planetId)
+        [Given(@"the people ID is: (.*)")]
+        public async Task GivenThePeopleIDIsAsync(int peopleId)
         {
             string BaseURL = "https://swapi.dev/api/";
-            string endpoint = BaseURL + "planets/" + planetId;
+            string endpoint = BaseURL + "people/" + peopleId;
             var Client = new RestClient(endpoint, configureSerialization: s => s.UseNewtonsoftJson());
             RestRequest Request = new RestRequest(endpoint) { Method = Method.Get };
             Request.AddHeader("Content-Type", "application/json");
@@ -21,14 +21,14 @@ namespace ApiTesting.StepDefinitions
             Response = await Client.GetAsync(Request);
         }
 
-        [Then(@"the planet name is: ([^']*)")]
-        public void ThenThePlanetNameIs(string planetName)
+        [Then(@"the people name is: ([^']*)")]
+        public void ThenThePeopleNameIs(string peopleName)
         {
             string ResponseContent = Response.Content;
-            Planet PlanetData = JsonConvert.DeserializeObject<Planet>(ResponseContent);
+            People PeopleData = JsonConvert.DeserializeObject<People>(ResponseContent);
 
-            string PlanetName = PlanetData.name;
-            Assert.True(PlanetName.Equals(planetName));
+            string PeopleName = PeopleData.name;
+            Assert.True(PeopleName.Equals(peopleName));
         }
     }
 }
