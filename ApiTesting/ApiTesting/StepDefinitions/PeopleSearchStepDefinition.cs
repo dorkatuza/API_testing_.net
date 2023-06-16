@@ -11,15 +11,10 @@ namespace ApiTesting.StepDefinitions
     {
 
         [Given(@"the people ID is: (.*)")]
-        public async Task GivenThePeopleIDIsAsync(int peopleId)
+        public void GivenThePeopleIDIsAsync(int peopleId)
         {
-            string BaseURL = "https://swapi.dev/api/";
-            string endpoint = BaseURL + "people/" + peopleId;
-            var Client = new RestClient(endpoint, configureSerialization: s => s.UseNewtonsoftJson());
-            RestRequest Request = new RestRequest(endpoint) { Method = Method.Get };
-            Request.AddHeader("Content-Type", "application/json");
-            Request.AddHeader("Accept", "application/json");
-            Response = await Client.GetAsync(Request);
+            string contentType = "people/";
+            Helper.GetResponse(contentType, peopleId);
         }
 
         [Then(@"the people name is: ([^']*)")]
