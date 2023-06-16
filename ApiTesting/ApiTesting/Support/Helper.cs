@@ -11,18 +11,15 @@ namespace ApiTesting.Support
     [Binding]
     public class Helper: ResponseHandler
     {
-        public async static void GetResponse(string contentType, int givenId)
+        public async static Task GetResponse(string endpointPath, int givenId)
         {
             string BaseURL = "https://swapi.dev/api/";
-            string endpoint = BaseURL + contentType + givenId;
+            string endpoint = BaseURL + endpointPath + givenId;
             var Client = new RestClient(endpoint, configureSerialization: s => s.UseNewtonsoftJson());
             RestRequest Request = new RestRequest(endpoint) { Method = Method.Get };
             Request.AddHeader("Content-Type", "application/json");
             Request.AddHeader("Accept", "application/json");
-            RestResponse restResponse = await Client.GetAsync(Request);
-            Response = restResponse;
-
-
+            Response = await Client.GetAsync(Request);
         }
     }
 }

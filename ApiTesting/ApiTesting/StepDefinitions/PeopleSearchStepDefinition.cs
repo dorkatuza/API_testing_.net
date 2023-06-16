@@ -11,10 +11,10 @@ namespace ApiTesting.StepDefinitions
     {
 
         [Given(@"the people ID is: (.*)")]
-        public void GivenThePeopleIDIsAsync(int peopleId)
+        public async Task GivenThePeopleIDIsAsync(int peopleId)
         {
-            string contentType = "people/";
-            Helper.GetResponse(contentType, peopleId);
+            string endpointPath = "people/";
+            await Helper.GetResponse(endpointPath, peopleId);
         }
 
         [Then(@"the people name is: ([^']*)")]

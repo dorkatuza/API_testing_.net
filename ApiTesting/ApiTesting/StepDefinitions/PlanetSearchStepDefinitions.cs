@@ -13,13 +13,8 @@ namespace ApiTesting.StepDefinitions
         [Given(@"the planet ID is: (.*)")]
         public async Task GivenThePlanetIDIsAsync(int planetId)
         {
-            string BaseURL = "https://swapi.dev/api/";
-            string endpoint = BaseURL + "planets/" + planetId;
-            var Client = new RestClient(endpoint, configureSerialization: s => s.UseNewtonsoftJson());
-            RestRequest Request = new RestRequest(endpoint) { Method = Method.Get };
-            Request.AddHeader("Content-Type", "application/json");
-            Request.AddHeader("Accept", "application/json");
-            Response = await Client.GetAsync(Request);
+            string endpointPath = "planets/";
+            await Helper.GetResponse(endpointPath, planetId);
         }
 
         [Then(@"the planet name is: ([^']*)")]

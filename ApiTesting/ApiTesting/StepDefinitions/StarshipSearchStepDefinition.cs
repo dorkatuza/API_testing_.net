@@ -13,13 +13,8 @@ namespace ApiTesting.StepDefinitions
         [Given(@"the starship ID is: (.*)")]
         public async Task GivenTheStarshipIDIsAsync(int starshipId)
         {
-            string BaseURL = "https://swapi.dev/api/";
-            string endpoint = BaseURL + "starships/" + starshipId;
-            var Client = new RestClient(endpoint, configureSerialization: s => s.UseNewtonsoftJson());
-            RestRequest Request = new RestRequest(endpoint) { Method = Method.Get };
-            Request.AddHeader("Content-Type", "application/json");
-            Request.AddHeader("Accept", "application/json");
-            Response = await Client.GetAsync(Request);
+            string endpointPath = "starships/";
+            await Helper.GetResponse(endpointPath, starshipId);
         }
 
         [Then(@"the starship name is: ([^']*)")]
