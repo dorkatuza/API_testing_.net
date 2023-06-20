@@ -14,7 +14,7 @@ namespace ApiTesting.StepDefinitions
         public async Task GivenThePeopleIDIsAsync(int peopleId)
         {
             string endpointPath = "people/";
-            await Helper.GetResponse(endpointPath, peopleId);
+            await APICallHandler.GetResponse(endpointPath, peopleId);
         }
 
         [Then(@"the people name is: ([^']*)")]

@@ -9,7 +9,7 @@ using RestSharp.Serializers.NewtonsoftJson;
 namespace ApiTesting.Support
 {
     [Binding]
-    public class Helper: ResponseHandler
+    public class APICallHandler: ResponseHandler
     {
         public async static Task GetResponse(string endpointPath, int givenId)
         {

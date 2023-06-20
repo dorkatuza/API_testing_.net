@@ -14,7 +14,7 @@ namespace ApiTesting.StepDefinitions
         public async Task GivenThePlanetIDIsAsync(int planetId)
         {
             string endpointPath = "planets/";
-            await Helper.GetResponse(endpointPath, planetId);
+            await APICallHandler.GetResponse(endpointPath, planetId);
         }
 
         [Then(@"the planet name is: ([^']*)")]

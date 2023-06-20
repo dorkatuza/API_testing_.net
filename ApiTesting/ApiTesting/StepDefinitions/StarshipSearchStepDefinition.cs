@@ -14,7 +14,7 @@ namespace ApiTesting.StepDefinitions
         public async Task GivenTheStarshipIDIsAsync(int starshipId)
         {
             string endpointPath = "starships/";
-            await Helper.GetResponse(endpointPath, starshipId);
+            await APICallHandler.GetResponse(endpointPath, starshipId);
         }
 
         [Then(@"the starship name is: ([^']*)")]
