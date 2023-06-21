@@ -23,8 +23,8 @@ namespace ApiTesting.StepDefinitions
             string ResponseContent = Response.Content;
             Starship StarshipData = JsonConvert.DeserializeObject<Starship>(ResponseContent);
 
-            string StarshipName = StarshipData.name;
-            Assert.True(StarshipName.Equals(starshipName));
+            string StarshipName = StarshipData.name;    
+            starshipName.Should().Be(StarshipName);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace ApiTesting.StepDefinitions
             Planet PlanetData = JsonConvert.DeserializeObject<Planet>(ResponseContent);
 
             string PlanetName = PlanetData.name;
-            Assert.True(PlanetName.Equals(planetName));
+            planetName.Should().Be(PlanetName);
         }
     }
 }

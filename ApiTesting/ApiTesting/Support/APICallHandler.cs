@@ -20,6 +20,7 @@ namespace ApiTesting.Support
             Request.AddHeader("Content-Type", "application/json");
             Request.AddHeader("Accept", "application/json");
             Response = await Client.GetAsync(Request);
+            Console.WriteLine();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace ApiTesting.StepDefinitions
     public class ResidenceStepDefinitions : ResponseHandler
     {
         [Then(@"the planet is the residence for people like:")]
-        public void ThenTheResidenceListAre(Table residentsTable)
+        public async Task ThenTheResidenceListAreAsync(Table residentsTable)
         {
             string responseContent = Response.Content;
             Planet planetData = JsonConvert.DeserializeObject<Planet>(responseContent);
@@ -26,7 +26,7 @@ namespace ApiTesting.StepDefinitions
                 string[] peopleUrl = ResidentURL.Split('/');
                 string endpointPath = peopleUrl[4] + "/";
                 int peopleId = int.Parse(peopleUrl[5]);
-                APICallHandler.GetResponse(endpointPath, peopleId);
+                await APICallHandler.GetResponse(endpointPath, peopleId);
                 string responsePeople = Response.Content;
                 People people = JsonConvert.DeserializeObject<People>(responsePeople);
                 residentsFromResponse.Add(people.name);

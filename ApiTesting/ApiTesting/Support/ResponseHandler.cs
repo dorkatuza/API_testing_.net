@@ -6,5 +6,6 @@ namespace ApiTesting.Support
     {
         private static RestResponse response;
         public static RestResponse Response { get => response; set => response = value; }
+        
     }
 }

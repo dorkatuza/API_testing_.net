@@ -15,7 +15,7 @@ namespace ApiTesting.StepDefinitions
         [When(@"response status is: (.*)")]
         public void WhenResponseStatusIs(string responseStatus)
         {
-            Assert.Equal(responseStatus, Response.StatusCode.ToString());
+            Response.StatusCode.ToString().Should().BeEquivalentTo(responseStatus);
         }
  
     }

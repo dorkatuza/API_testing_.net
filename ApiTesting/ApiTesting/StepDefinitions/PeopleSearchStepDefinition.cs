@@ -24,7 +24,7 @@ namespace ApiTesting.StepDefinitions
             People PeopleData = JsonConvert.DeserializeObject<People>(ResponseContent);
 
             string PeopleName = PeopleData.name;
-            Assert.True(PeopleName.Equals(peopleName));
+            peopleName.Should().Be(PeopleName);
         }
     }
 }

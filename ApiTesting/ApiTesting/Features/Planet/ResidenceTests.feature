@@ -1,4 +1,4 @@
-﻿Feature: Feature1
+﻿Feature: People Residence
 
 As a Star Wars fan
 I want to know who's residence is the given planet
@@ -9,7 +9,6 @@ Scenario: Get residence for the planet
 	When response status is: OK
 	Then the planet is the residence for people like:
 	| CharacterName      |
-	#|https://swapi.dev/api/people/1/ |
 	| Luke Skywalker     |
 	| C-3PO              |
 	| Darth Vader        |
