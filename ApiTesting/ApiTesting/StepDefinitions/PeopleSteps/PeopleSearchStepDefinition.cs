@@ -4,10 +4,10 @@ using Newtonsoft.Json;
 using RestSharp;
 using RestSharp.Serializers.NewtonsoftJson;
 
-namespace ApiTesting.StepDefinitions
+namespace ApiTesting.StepDefinitions.NewFolder
 {
     [Binding]
-    public class PeopleSearchStepDefinitions: ResponseHandler
+    public class PeopleSearchStepDefinitions : ResponseHandler
     {
 
         [Given(@"the people ID is: (.*)")]

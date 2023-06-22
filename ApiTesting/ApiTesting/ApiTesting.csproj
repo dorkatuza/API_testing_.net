@@ -25,6 +25,9 @@
 
   <ItemGroup>
     <Folder Include="Drivers\" />
+    <Folder Include="Features\Film\" />
+    <Folder Include="Features\Species\" />
+    <Folder Include="Features\Vehicle\" />
   </ItemGroup>
 
 </Project>

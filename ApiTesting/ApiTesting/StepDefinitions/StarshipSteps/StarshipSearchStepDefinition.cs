@@ -4,10 +4,10 @@ using Newtonsoft.Json;
 using RestSharp;
 using RestSharp.Serializers.NewtonsoftJson;
 
-namespace ApiTesting.StepDefinitions
+namespace ApiTesting.StepDefinitions.StarshipTests
 {
     [Binding]
-    public class StarshipSearchStepDefinitions: ResponseHandler
+    public class StarshipSearchStepDefinitions : ResponseHandler
     {
 
         [Given(@"the starship ID is: (.*)")]
@@ -23,7 +23,7 @@ namespace ApiTesting.StepDefinitions
             string ResponseContent = Response.Content;
             Starship StarshipData = JsonConvert.DeserializeObject<Starship>(ResponseContent);
 
-            string StarshipName = StarshipData.name;    
+            string StarshipName = StarshipData.name;
             starshipName.Should().Be(StarshipName);
         }
     }
