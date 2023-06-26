@@ -22,5 +22,16 @@ namespace ApiTesting.Support
             Response = await Client.GetAsync(Request);
             Console.WriteLine();
         }
+        public async static Task GetResponse(string endpointPath)
+        {
+            string BaseURL = "https://swapi.dev/api/";
+            string endpoint = BaseURL + endpointPath;
+            var Client = new RestClient(endpoint, configureSerialization: s => s.UseNewtonsoftJson());
+            RestRequest Request = new RestRequest(endpoint) { Method = Method.Get };
+            Request.AddHeader("Content-Type", "application/json");
+            Request.AddHeader("Accept", "application/json");
+            Response = await Client.GetAsync(Request);
+            Console.WriteLine();
+        }
     }
 }
